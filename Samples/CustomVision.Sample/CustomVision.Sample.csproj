@@ -33,12 +33,12 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Microsoft.Cognitive.CustomVision.Prediction, Version=0.10.365.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>packages\Microsoft.Cognitive.CustomVision.Prediction.0.10.365-d708210-production\lib\dotnet\Microsoft.Cognitive.CustomVision.Prediction.dll</HintPath>
+    <Reference Include="Microsoft.Cognitive.CustomVision.Prediction, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>packages\Microsoft.Cognitive.CustomVision.Prediction.1.0.0\lib\dotnet\Microsoft.Cognitive.CustomVision.Prediction.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="Microsoft.Cognitive.CustomVision.Training, Version=0.10.365.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>packages\Microsoft.Cognitive.CustomVision.Training.0.10.365-d708210-production\lib\dotnet\Microsoft.Cognitive.CustomVision.Training.dll</HintPath>
+    <Reference Include="Microsoft.Cognitive.CustomVision.Training, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>packages\Microsoft.Cognitive.CustomVision.Training.1.0.0\lib\dotnet\Microsoft.Cognitive.CustomVision.Training.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="Microsoft.Rest.ClientRuntime, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
