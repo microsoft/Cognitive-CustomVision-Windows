@@ -2,7 +2,7 @@
 // Copyright (c) Microsoft. All rights reserved.
 // Licensed under the MIT license.
 // 
-// Microsoft Cognitive Services: https://www.microsoft.com/cognitive-services
+// Microsoft Cognitive Services: https://azure.microsoft.com/en-us/services/cognitive-services
 // 
 // Microsoft Cognitive Services GitHub:
 // https://github.com/Microsoft/Cognitive-CustomVision-Windows
