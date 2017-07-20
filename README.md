@@ -1,5 +1,5 @@
 # Microsoft Custom Vision Service: Windows Client Library & Sample
-This repo contains the Windows client library & sample for the Microsoft Custom Vision Service, an offering within [Microsoft Cognitive Services](https://www.microsoft.com/cognitive-services)
+This repo contains the Windows client library & sample for the Microsoft Custom Vision Service, an offering within [Microsoft Cognitive Services](https://azure.microsoft.com/en-us/services/cognitive-services/)
 
 ## The Prediction Client Library
 The prediction client library is an automatically generated C\# wrapper that allows you to make predictions against trained endpoints.
@@ -60,4 +60,4 @@ Sample images are licensed separately, please refer to [LICENSE-IMAGE](</LICENSE
 
 
 ## Developer Code of Conduct
-Developers using Cognitive Services, including this client library & sample, are expected to follow the “Developer Code of Conduct for Microsoft Cognitive Services”, found at [http://go.microsoft.com/fwlink/?LinkId=698895](http://go.microsoft.com/fwlink/?LinkId=698895).
+Developers using Cognitive Services, including this client library & sample & tools, are expected to follow the “Developer Code of Conduct for Microsoft Cognitive Services”, found at [http://go.microsoft.com/fwlink/?LinkId=698895](http://go.microsoft.com/fwlink/?LinkId=698895).
