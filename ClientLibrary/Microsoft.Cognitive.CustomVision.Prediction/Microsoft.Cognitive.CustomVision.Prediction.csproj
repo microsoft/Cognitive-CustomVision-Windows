@@ -39,8 +39,6 @@
     <!-- A reference to the entire .NET Framework is automatically included -->
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="PredictionEndpoint.cs" />
-    <Compile Include="PredictionEndpointCredentials.cs" />
     <Compile Include="Generated\*.cs" />
     <Compile Include="Generated\Models\*.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
