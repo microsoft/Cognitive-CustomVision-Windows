@@ -37,9 +37,8 @@
       <HintPath>..\packages\CommandLineParser.2.1.1-beta\lib\net45\CommandLine.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="Microsoft.Cognitive.CustomVision.Training, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
-      <HintPath>..\packages\Microsoft.Cognitive.CustomVision.Training.1.0.0\lib\dotnet\Microsoft.Cognitive.CustomVision.Training.dll</HintPath>
-      <Private>True</Private>
+    <Reference Include="Microsoft.Cognitive.CustomVision.Training">
+      <HintPath>..\packages\Microsoft.Cognitive.CustomVision.Training.1.2.0\lib\dotnet\Microsoft.Cognitive.CustomVision.Training.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.Rest.ClientRuntime, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.Rest.ClientRuntime.2.3.7\lib\net452\Microsoft.Rest.ClientRuntime.dll</HintPath>

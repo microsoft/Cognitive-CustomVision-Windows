@@ -61,7 +61,7 @@ namespace Common.DataProvider
             return (allowedTagNames == null || allowedTagNames.Count == 0) ? tagNames : tagNames.Where(allowedTagNames.Contains);
         }
 
-        public override IEnumerable<Image> LoadImages()
+        public override IEnumerable<ImageInfo> LoadImages()
         {
             var tagNames = GetTagNamesFromDir(WorkDir, AllowedTagNames);
             foreach (var tagName in tagNames)
@@ -69,7 +69,7 @@ namespace Common.DataProvider
                 var imageFilePaths = GetAllImagePathsInFolder(WorkDir + tagName, LegalImageExtensions);
                 foreach (var imageFilePath in imageFilePaths)
                 {
-                    yield return new Image
+                    yield return new ImageInfo
                     {
                         Path = imageFilePath,
                         TagNames = new[] { tagName } 

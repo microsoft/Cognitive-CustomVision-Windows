@@ -45,6 +45,6 @@ namespace ImagesDownloader.ImageFilesWritter
         /// Write <paramref name="images"/> to local disk
         /// </summary>
         /// <param name="images">Images to write to disk</param>
-        void WriteImagesToDisk(IEnumerable<Image> images);
+        void WriteImagesToDisk(IEnumerable<ImageInfo> images);
     }
 }

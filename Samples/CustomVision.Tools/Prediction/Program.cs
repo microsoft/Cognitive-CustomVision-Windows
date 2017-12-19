@@ -37,6 +37,7 @@ using Common.DataProvider;
 using Microsoft.Cognitive.CustomVision;
 using Prediction.Measurements;
 using Prediction.Predictors;
+using Microsoft.Cognitive.CustomVision.Prediction;
 
 namespace Prediction
 {
@@ -51,7 +52,7 @@ namespace Prediction
             }
 
             var images = ImagesLoaderGenerator.GenerateImagesLoader(options, options.AllowedTagNames).LoadImages();
-            var predictionEndpoint = new PredictionEndpoint(new PredictionEndpointCredentials(options.PredictionKey));
+            var predictionEndpoint = new PredictionEndpoint() { ApiKey = options.PredictionKey };
 
             if (options.BaseUri != null)
             {

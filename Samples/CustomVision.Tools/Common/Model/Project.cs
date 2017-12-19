@@ -34,15 +34,15 @@
 using System;
 using System.IO;
 using System.Threading.Tasks;
-using Microsoft.Cognitive.CustomVision.Models;
 using Newtonsoft.Json;
+using Microsoft.Cognitive.CustomVision.Training.Models;
 
 namespace Common.Model
 {
     /// <summary>
     /// Project info model
     /// </summary>
-    public class Project : ProjectModel
+    public class Project : Microsoft.Cognitive.CustomVision.Training.Models.Project
     {
         public Project()
         {
@@ -50,7 +50,7 @@ namespace Common.Model
             Description = "No description";
         }
 
-        public Project(ProjectModel projectModel)
+        public Project(Microsoft.Cognitive.CustomVision.Training.Models.Project projectModel)
         {
             Name = projectModel.Name;
             Description = projectModel.Description;

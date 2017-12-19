@@ -36,8 +36,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Common.Model;
-using Microsoft.Cognitive.CustomVision;
-using Microsoft.Cognitive.CustomVision.Models;
+using Microsoft.Cognitive.CustomVision.Training.Models;
+using Microsoft.Cognitive.CustomVision.Training;
 
 namespace Training.ImagesUploader
 {
@@ -56,11 +56,11 @@ namespace Training.ImagesUploader
 
         public ITrainingApi TrainingApi { get; }
 
-        public async Task<CreateImageSummaryModel> UploadImagesAsync(IEnumerable<Image> images, Guid projectId)
+        public async Task<ImageCreateSummary> UploadImagesAsync(IEnumerable<ImageInfo> images, Guid projectId)
         {
             // The images in the same batch share the same set of labels
             var imageBatchesByTags = images.GroupBy(image => ConcatTags(image.TagNames), image => image);
-            var uploadResults = new List<CreateImageResultModel>();
+            var uploadResults = new List<ImageCreateResult>();
             var tagNameToId = (await TrainingApi.GetTagsAsync(projectId)).Tags.ToDictionary(x => x.Name, x => x.Id);
             var numImagesUploaded = 0;
 
@@ -97,7 +97,7 @@ namespace Training.ImagesUploader
                 numImagesUploaded += cnt;
             }
 
-            return new CreateImageSummaryModel(isBatchSuccessful: numImagesUploaded != 0, images: uploadResults);
+            return new ImageCreateSummary(isBatchSuccessful: numImagesUploaded != 0, images: uploadResults);
         }
 
         private async Task<Guid> GetTagId(Guid projectId, string tagName, IDictionary<string, Guid> tagNameToId)
@@ -123,6 +123,6 @@ namespace Training.ImagesUploader
                 });
         }
 
-        protected abstract Task<CreateImageSummaryModel> UploadImagesByTagsAsync(IEnumerable<Image> images, Guid projectId, ICollection<Guid> tagIds);
+        protected abstract Task<ImageCreateSummary> UploadImagesByTagsAsync(IEnumerable<ImageInfo> images, Guid projectId, ICollection<Guid> tagIds);
     }
 }

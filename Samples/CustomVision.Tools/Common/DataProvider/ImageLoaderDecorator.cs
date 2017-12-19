@@ -49,6 +49,6 @@ namespace Common.DataProvider
 
         protected IImagesLoader ImagesLoader { get; }
 
-        public abstract IEnumerable<Image> LoadImages();
+        public abstract IEnumerable<ImageInfo> LoadImages();
     }
 }

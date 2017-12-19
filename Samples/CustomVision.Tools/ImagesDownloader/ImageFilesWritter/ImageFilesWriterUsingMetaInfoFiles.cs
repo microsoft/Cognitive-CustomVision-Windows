@@ -55,7 +55,7 @@ namespace ImagesDownloader.ImageFilesWritter
 
         private string WorkDir { get; }
 
-        public void WriteImagesToDisk(IEnumerable<Common.Model.Image> images)
+        public void WriteImagesToDisk(IEnumerable<Common.Model.ImageInfo> images)
         {
             Console.WriteLine($"Created image metainfo file: {WorkDir + MetaInfoFileName}");
             using (var metaInfoFile = new StreamWriter(WorkDir + MetaInfoFileName))
@@ -71,7 +71,7 @@ namespace ImagesDownloader.ImageFilesWritter
             }
         }
 
-        private static void WriteRowInMetaFile(TextWriter metaInfoFile, Common.Model.Image image, string fileName)
+        private static void WriteRowInMetaFile(TextWriter metaInfoFile, Common.Model.ImageInfo image, string fileName)
         {
             var tagNames = image.TagNames?.ToList();
             var row = tagNames != null && tagNames.Any()

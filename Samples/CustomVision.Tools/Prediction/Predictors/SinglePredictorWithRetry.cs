@@ -35,8 +35,8 @@ using System;
 using System.Threading.Tasks;
 using Common.Helper;
 using Common.Model;
-using Microsoft.Cognitive.CustomVision.Models;
 using Microsoft.Rest;
+using Microsoft.Cognitive.CustomVision.Prediction.Models;
 
 namespace Prediction.Predictors
 {
@@ -55,7 +55,7 @@ namespace Prediction.Predictors
 
         private int RetryTimes { get; }
 
-        public override async Task<ImagePredictionResultModel> PredictWithImageAsync(Image image, Guid projectId, Guid? iterationId = null)
+        public override async Task<ImagePredictionResultModel> PredictWithImageAsync(ImageInfo image, Guid projectId, Guid? iterationId = null)
         {
             return await RetryHelper.RetryFuncAsync(
                 async () => await Predictor.PredictWithImageAsync(image, projectId, iterationId),

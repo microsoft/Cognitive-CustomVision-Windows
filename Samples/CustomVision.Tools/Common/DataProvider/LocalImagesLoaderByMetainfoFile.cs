@@ -59,7 +59,7 @@ namespace Common.DataProvider
 
         private bool TagInfoAvailable { get; }
 
-        public override IEnumerable<Image> LoadImages()
+        public override IEnumerable<ImageInfo> LoadImages()
         {
             var imagePaths = GetAllImagePathsInFolder(WorkDir, LegalImageExtensions);
             var trueLabelsByImageName = !TagInfoAvailable ? null : ReadTrueLabels(WorkDir + (WorkDir.EndsWith(@"\") ? string.Empty : @"\") + MetaInfoFileName);
@@ -81,7 +81,7 @@ namespace Common.DataProvider
                     }
                 }
 
-                yield return new Image
+                yield return new ImageInfo
                 {
                     Path = imagePath,
                     TagNames = tagNames

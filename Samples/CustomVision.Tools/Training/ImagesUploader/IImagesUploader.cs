@@ -35,7 +35,7 @@ using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using Common.Model;
-using Microsoft.Cognitive.CustomVision.Models;
+using Microsoft.Cognitive.CustomVision.Training.Models;
 
 namespace Training.ImagesUploader
 {
@@ -50,6 +50,6 @@ namespace Training.ImagesUploader
         /// <param name="images">Images to upload</param>
         /// <param name="projectId">Id of the project to upload image to</param>
         /// <returns></returns>
-        Task<CreateImageSummaryModel> UploadImagesAsync(IEnumerable<Image> images, Guid projectId);
+        Task<ImageCreateSummary> UploadImagesAsync(IEnumerable<ImageInfo> images, Guid projectId);
     }
 }

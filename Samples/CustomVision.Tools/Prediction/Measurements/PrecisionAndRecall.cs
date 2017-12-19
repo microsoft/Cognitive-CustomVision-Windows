@@ -36,7 +36,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Common.Model;
-using Microsoft.Cognitive.CustomVision.Models;
+using Microsoft.Cognitive.CustomVision.Prediction.Models;
 
 namespace Prediction.Measurements
 {
@@ -88,9 +88,9 @@ namespace Prediction.Measurements
         /// <param name="allowedTagNames">Tags considered in computation</param>
         /// <returns>Precision and recall</returns>
         public static async Task<PrecisionAndRecall> ComputeAsync(
-            IEnumerable<Image> images,
+            IEnumerable<ImageInfo> images,
             double threshold,
-            Func<IEnumerable<Image>, Task<IEnumerable<ImagePredictionResultModel>>> predict,
+            Func<IEnumerable<ImageInfo>, Task<IEnumerable<ImagePredictionResultModel>>> predict,
             ICollection<string> allowedTagNames)
         {
             var imageList = images.ToList();
@@ -100,7 +100,7 @@ namespace Prediction.Measurements
         }
 
         private static PrecisionAndRecall Compute(
-            IEnumerable<Image> images,
+            IEnumerable<ImageInfo> images,
             double threshold,
             IEnumerable<ImagePredictionResultModel> predictions,
             ICollection<string> allowedTagNames)

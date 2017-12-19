@@ -36,7 +36,7 @@ using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
 using Common.Model;
-using Microsoft.Cognitive.CustomVision.Models;
+using Microsoft.Cognitive.CustomVision.Prediction.Models;
 
 namespace Prediction.Predictors
 {
@@ -60,7 +60,7 @@ namespace Prediction.Predictors
 
         private StreamWriter OutputFileStream { get; }  
 
-        public override async Task<ImagePredictionResultModel> PredictWithImageAsync(Image image, Guid projectId, Guid? iterationId = null)
+        public override async Task<ImagePredictionResultModel> PredictWithImageAsync(ImageInfo image, Guid projectId, Guid? iterationId = null)
         {
             var prediction = await Predictor.PredictWithImageAsync(image, projectId, iterationId);
             if (prediction != null)

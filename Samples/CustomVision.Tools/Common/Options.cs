@@ -40,6 +40,7 @@ using CommandLine.Text;
 using Common.Extensions;
 using Microsoft.Cognitive.CustomVision;
 using Microsoft.Rest;
+using Microsoft.Cognitive.CustomVision.Training;
 
 namespace Common
 {

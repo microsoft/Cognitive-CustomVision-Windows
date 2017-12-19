@@ -51,7 +51,7 @@ namespace Common.DataProvider
 
         private string UrlFilePath { get; }
 
-        public override IEnumerable<Image> LoadImages()
+        public override IEnumerable<ImageInfo> LoadImages()
         {
             using (var fileStream = File.OpenRead(UrlFilePath))
             using (var reader = new StreamReader(fileStream))
@@ -76,7 +76,7 @@ namespace Common.DataProvider
                         }
                     }
 
-                    yield return new Image
+                    yield return new ImageInfo
                     {
                         Path = values[0],
                         TagNames = tagNames

@@ -40,6 +40,7 @@ using System.Threading.Tasks;
 using Microsoft.Cognitive.CustomVision;
 using Common.Model;
 using Microsoft.Rest;
+using Microsoft.Cognitive.CustomVision.Training;
 
 namespace Common.Extensions
 {
