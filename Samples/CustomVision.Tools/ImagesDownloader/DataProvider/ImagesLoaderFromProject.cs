@@ -36,8 +36,8 @@ using System.Collections.Generic;
 using System.Linq;
 using Common.DataProvider;
 using Common.Model;
-using Microsoft.Cognitive.CustomVision;
-using Microsoft.Cognitive.CustomVision.Models;
+using Microsoft.Cognitive.CustomVision.Training;
+using Microsoft.Cognitive.CustomVision.Training.Models;
 
 namespace ImagesDownloader.DataProvider
 {
@@ -58,7 +58,7 @@ namespace ImagesDownloader.DataProvider
 
         private Guid? IterationId { get; }
 
-        public override IEnumerable<Image> LoadImages()
+        public override IEnumerable<ImageInfo> LoadImages()
         {
             var tagIds = GetTagIds(AllowedTagNames).ToList();
             if (TagFilterEnabled && tagIds.Count == 0)
@@ -69,16 +69,16 @@ namespace ImagesDownloader.DataProvider
             return tagIds.Count == 0 ? GetAllImages() : GetImagesByTags(tagIds);
         }
 
-        private IEnumerable<Image> GetAllImages()
+        private IEnumerable<ImageInfo> GetAllImages()
         {
-            var taggedImages = GetImagesInBatch((batchSize, skip) => TrainingApi.GetAllTaggedImages(ProjectId, IterationId, take: batchSize, skip: skip));
-            var untaggedImages = GetImagesInBatch((batchSize, skip) => TrainingApi.GetAllUntaggedImages(ProjectId, IterationId, take: batchSize, skip: skip));
+            var taggedImages = GetImagesInBatch((batchSize, skip) => TrainingApi.GetTaggedImages(ProjectId, IterationId, take: batchSize, skip: skip));
+            var untaggedImages = GetImagesInBatch((batchSize, skip) => TrainingApi.GetUntaggedImages(ProjectId, IterationId, take: batchSize, skip: skip));
             return taggedImages.Concat(untaggedImages);
         }
 
-        private IEnumerable<Image> GetImagesByTags(ICollection<Guid> tagIds)
+        private IEnumerable<ImageInfo> GetImagesByTags(ICollection<Guid> tagIds)
         {
-            var images = GetImagesInBatch((batchSize, skip) => TrainingApi.GetImagesByTags(ProjectId, IterationId, take: batchSize, skip: skip, tagIds: tagIds.Select(x => x.ToString()).ToList()));
+            var images = GetImagesInBatch((batchSize, skip) => TrainingApi.GetTaggedImages(ProjectId, IterationId, take: batchSize, skip: skip, tagIds: tagIds.Select(x => x.ToString()).ToList()));
             return images.Select(x =>
             {
                 var allowed = x.TagIds.Select(tagIds.Contains).ToList();
@@ -88,24 +88,24 @@ namespace ImagesDownloader.DataProvider
             });
         }
 
-        private IEnumerable<Image> GetImagesInBatch(Func<int, int, IEnumerable<ImageModel>> getAnImageModelBatch)
+        private IEnumerable<ImageInfo> GetImagesInBatch(Func<int, int, IEnumerable<Image>> getAnImageModelBatch)
         {
             var tagIdToName = TrainingApi.GetTags(ProjectId, IterationId).Tags.ToDictionary(x => x.Id, x => x.Name);
 
             var batchIndex = 0;
 
-            IList<ImageModel> imageModels;
+            IList<Image> imageModels;
             do
             {
                 imageModels = getAnImageModelBatch(ImageDownloadBatchSize, batchIndex * ImageDownloadBatchSize).ToList();
                 foreach (var imageModel in imageModels)
                 {
-                    yield return new Image
+                    yield return new ImageInfo
                     {
                         Id = imageModel.Id,
                         Path = imageModel.ImageUri,
-                        TagIds = imageModel.Labels?.Select(x => x.TagId).ToList(),
-                        TagNames = imageModel.Labels?.Select(x => tagIdToName[x.TagId]).ToList()
+                        TagIds = imageModel.Tags?.Select(x => x.TagId).ToList(),
+                        TagNames = imageModel.Tags?.Select(x => tagIdToName[x.TagId]).ToList()
                     };
                 }
 

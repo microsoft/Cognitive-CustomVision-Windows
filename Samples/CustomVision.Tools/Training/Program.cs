@@ -37,6 +37,7 @@ using Common.Extensions;
 using Microsoft.Cognitive.CustomVision;
 using Training.Extensions;
 using Common.Model;
+using Microsoft.Cognitive.CustomVision.Training;
 
 namespace Training
 {
@@ -50,7 +51,7 @@ namespace Training
                 return;
             }
 
-            var trainingApi = new TrainingApi(new TrainingApiCredentials(options.Trainingkey));
+            var trainingApi = new TrainingApi() { ApiKey = options.Trainingkey };
             if (options.BaseUri != null)
             {
                 Console.WriteLine($"The default base uri is {trainingApi.BaseUri}. Changed it to {options.BaseUri}.");

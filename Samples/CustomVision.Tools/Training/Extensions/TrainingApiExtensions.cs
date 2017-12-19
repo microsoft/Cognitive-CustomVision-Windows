@@ -34,10 +34,10 @@
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using Common.DataProvider;
-using Microsoft.Cognitive.CustomVision;
-using Microsoft.Cognitive.CustomVision.Models;
 using Training.ImagesUploader;
 using Common.Model;
+using Microsoft.Cognitive.CustomVision.Training;
+using Microsoft.Cognitive.CustomVision.Training.Models;
 
 namespace Training.Extensions
 {
@@ -49,8 +49,8 @@ namespace Training.Extensions
         /// <summary>
         /// Read and upload images to <paramref name="project"/> based on <paramref name="options"/>
         /// </summary>
-        public static async Task<CreateImageSummaryModel> ReadAndUploadImagesAsync(this ITrainingApi trainingApi,
-            Project project, TrainingOptions options, ICollection<string> allowedTagNames)
+        public static async Task<ImageCreateSummary> ReadAndUploadImagesAsync(this ITrainingApi trainingApi,
+            Common.Model.Project project, TrainingOptions options, ICollection<string> allowedTagNames)
         {
             var images = ImagesLoaderGenerator.GenerateImagesLoader(options, allowedTagNames).LoadImages();
             return await ImagesUploaderGenerator.GenerateImagesUploader(options, trainingApi).UploadImagesAsync(images, project.Id);

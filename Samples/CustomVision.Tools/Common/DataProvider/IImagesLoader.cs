@@ -46,6 +46,6 @@ namespace Common.DataProvider
         /// Load images
         /// </summary>
         /// <returns>Requested images</returns>
-        IEnumerable<Image> LoadImages();
+        IEnumerable<ImageInfo> LoadImages();
     }
 }

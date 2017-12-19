@@ -37,9 +37,9 @@ using System.Linq;
 using System.Threading.Tasks;
 using Common.Helper;
 using Common.Model;
-using Microsoft.Cognitive.CustomVision;
-using Microsoft.Cognitive.CustomVision.Models;
 using Microsoft.Rest;
+using Microsoft.Cognitive.CustomVision.Training;
+using Microsoft.Cognitive.CustomVision.Training.Models;
 
 namespace Training.ImagesUploader
 {
@@ -52,12 +52,12 @@ namespace Training.ImagesUploader
 
         private int RetryTimes { get; }
 
-        protected override async Task<CreateImageSummaryModel> UploadImagesByTagsAsync(IEnumerable<Image> images, Guid projectId, ICollection<Guid> tagIds)
+        protected override async Task<ImageCreateSummary> UploadImagesByTagsAsync(IEnumerable<ImageInfo> images, Guid projectId, ICollection<Guid> tagIds)
         {
             var imageArray = images.ToList();
-            Func<Task<CreateImageSummaryModel>> createImagesFromUrls = async () => await TrainingApi.CreateImagesFromUrlsAsync(
+            Func<Task<ImageCreateSummary>> createImagesFromUrls = async () => await TrainingApi.CreateImagesFromUrlsAsync(
                 projectId,
-                new ImageUrlCreateBatch(tagIds: tagIds.ToList(), urls: imageArray.Select(x => x.Path).ToList()));
+                new ImageUrlCreateBatch(tagIds: tagIds.ToList(), images: imageArray.Select(x => new ImageUrlCreateEntry(x.Path)).ToList()));
 
             return await RetryHelper.RetryFuncAsync(
                 createImagesFromUrls,

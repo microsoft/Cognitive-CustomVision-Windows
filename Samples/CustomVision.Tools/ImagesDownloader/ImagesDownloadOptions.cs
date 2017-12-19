@@ -39,6 +39,7 @@ using CommandLine;
 using Common;
 using Microsoft.Cognitive.CustomVision;
 using Training;
+using Microsoft.Cognitive.CustomVision.Training;
 
 namespace ImagesDownloader
 {

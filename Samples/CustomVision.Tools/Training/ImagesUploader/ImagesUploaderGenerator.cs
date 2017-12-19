@@ -33,6 +33,7 @@
 
 using System;
 using Microsoft.Cognitive.CustomVision;
+using Microsoft.Cognitive.CustomVision.Training;
 
 namespace Training.ImagesUploader
 {

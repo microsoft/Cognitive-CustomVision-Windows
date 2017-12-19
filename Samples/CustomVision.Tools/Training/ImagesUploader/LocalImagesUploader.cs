@@ -37,7 +37,9 @@ using System.Linq;
 using System.Threading.Tasks;
 using Common.Model;
 using Microsoft.Cognitive.CustomVision;
-using Microsoft.Cognitive.CustomVision.Models;
+using Microsoft.Cognitive.CustomVision.Training;
+using Microsoft.Cognitive.CustomVision.Training.Models;
+using System.IO;
 
 namespace Training.ImagesUploader
 {
@@ -50,11 +52,12 @@ namespace Training.ImagesUploader
         {
         }
 
-        protected override async Task<CreateImageSummaryModel> UploadImagesByTagsAsync(IEnumerable<Image> images, Guid projectId, ICollection<Guid> tagIds)
+        protected override async Task<ImageCreateSummary> UploadImagesByTagsAsync(IEnumerable<ImageInfo> images, Guid projectId, ICollection<Guid> tagIds)
         {
-            var imageArray = images.ToList();
+            var imageFiles = images.Select(img => new ImageFileCreateEntry(img.Path, File.ReadAllBytes(img.Path))).ToList();
 
-            return await Image.OperateOnImageStreamsAsync(async x => await TrainingApi.CreateImagesFromDataAsync(projectId, x, tagIds.ToList()), imageArray);
+            ImageFileCreateBatch files = new ImageFileCreateBatch(imageFiles, tagIds.ToList());
+            return await ImageInfo.OperateOnImageStreamsAsync(async x => await TrainingApi.CreateImagesFromFilesAsync(projectId, files), images);
         }
     }
 }

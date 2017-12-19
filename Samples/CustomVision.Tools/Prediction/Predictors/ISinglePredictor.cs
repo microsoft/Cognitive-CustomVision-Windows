@@ -34,7 +34,7 @@
 using System;
 using System.Threading.Tasks;
 using Common.Model;
-using Microsoft.Cognitive.CustomVision.Models;
+using Microsoft.Cognitive.CustomVision.Prediction.Models;
 
 namespace Prediction.Predictors
 {
@@ -50,6 +50,6 @@ namespace Prediction.Predictors
         /// <param name="projectId">Project id used for prediction</param>
         /// <param name="iterationId">Iteration id used for prediction. Can be null if a default one is specified</param>
         /// <returns></returns>
-        Task<ImagePredictionResultModel> PredictWithImageAsync(Image image, Guid projectId, Guid? iterationId = null);
+        Task<ImagePredictionResultModel> PredictWithImageAsync(ImageInfo image, Guid projectId, Guid? iterationId = null);
     }
 }

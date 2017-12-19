@@ -31,13 +31,12 @@
 // WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 // 
 
-using System;
 using Common;
 using Common.Model;
 using ImagesDownloader.DataProvider;
 using ImagesDownloader.ImageFilesWritter;
-using Microsoft.Cognitive.CustomVision;
-using Newtonsoft.Json;
+using Microsoft.Cognitive.CustomVision.Training;
+using System;
 
 namespace ImagesDownloader
 {
@@ -51,7 +50,7 @@ namespace ImagesDownloader
                 return;
             }
 
-            var trainingApi = new TrainingApi(new TrainingApiCredentials(options.Trainingkey));
+            var trainingApi = new TrainingApi() { ApiKey = options.Trainingkey };
 
             if (options.BaseUri != null)
             {

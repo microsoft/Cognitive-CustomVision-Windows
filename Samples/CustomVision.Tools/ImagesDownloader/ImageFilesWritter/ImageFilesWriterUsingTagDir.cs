@@ -54,7 +54,7 @@ namespace ImagesDownloader.ImageFilesWritter
 
         private string WorkDir { get; }
 
-        public void WriteImagesToDisk(IEnumerable<Common.Model.Image> images)
+        public void WriteImagesToDisk(IEnumerable<Common.Model.ImageInfo> images)
         {
             foreach (var image in images)
             {

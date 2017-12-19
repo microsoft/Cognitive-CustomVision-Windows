@@ -43,7 +43,7 @@ namespace Common.Model
     /// <summary>
     /// Model for image
     /// </summary>
-    public class Image
+    public class ImageInfo
     {
         /// <summary>
         /// Gets or sets the image id
@@ -77,7 +77,7 @@ namespace Common.Model
         /// <param name="funcAsync">Function to run</param>
         /// <param name="images">Images which <paramref name="funcAsync"/> runs on the streams of</param>
         /// <returns>Result</returns>
-        public static async Task<T> OperateOnImageStreamsAsync<T>(Func<IEnumerable<Stream>, Task<T>> funcAsync, IEnumerable<Image> images)
+        public static async Task<T> OperateOnImageStreamsAsync<T>(Func<IEnumerable<Stream>, Task<T>> funcAsync, IEnumerable<ImageInfo> images)
         {
             if (images == null)
             {

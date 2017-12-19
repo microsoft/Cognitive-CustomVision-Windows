@@ -54,6 +54,6 @@ namespace Common.DataProvider
             AllowedTagNames = new HashSet<string>(allowedTagNames);
         }
 
-        public abstract IEnumerable<Image> LoadImages();
+        public abstract IEnumerable<ImageInfo> LoadImages();
     }
 }
