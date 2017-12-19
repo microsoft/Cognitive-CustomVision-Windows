@@ -58,7 +58,7 @@ namespace Training
                 trainingApi.BaseUri = options.BaseUri;
             }
 
-            Project project;
+            ProjectInfo project;
             if (options.ProjectId != Guid.Empty)
             {
                 if (!trainingApi.CheckIfProjectExists(options.ProjectId))
@@ -67,12 +67,12 @@ namespace Training
                     return;
                 }
 
-                project = new Project(trainingApi.GetProject(options.ProjectId));
+                project = new ProjectInfo(trainingApi.GetProject(options.ProjectId));
             }
             else
             {
                 Console.WriteLine("ProjectId is not provided. Creating a new project...");
-                var projectInfo = Project.ReadProjectInfo(options.WorkDir + options.ProjectInfoFileName);
+                var projectInfo = ProjectInfo.ReadProjectInfo(options.WorkDir + options.ProjectInfoFileName);
                 project = trainingApi.CreateProjectAsync(projectInfo).Result;
             }
             

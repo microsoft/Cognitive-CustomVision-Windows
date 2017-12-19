@@ -50,7 +50,7 @@ namespace Training.Extensions
         /// Read and upload images to <paramref name="project"/> based on <paramref name="options"/>
         /// </summary>
         public static async Task<ImageCreateSummary> ReadAndUploadImagesAsync(this ITrainingApi trainingApi,
-            Common.Model.Project project, TrainingOptions options, ICollection<string> allowedTagNames)
+            Common.Model.ProjectInfo project, TrainingOptions options, ICollection<string> allowedTagNames)
         {
             var images = ImagesLoaderGenerator.GenerateImagesLoader(options, allowedTagNames).LoadImages();
             return await ImagesUploaderGenerator.GenerateImagesUploader(options, trainingApi).UploadImagesAsync(images, project.Id);
