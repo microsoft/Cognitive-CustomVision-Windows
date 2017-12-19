@@ -63,7 +63,7 @@ namespace Common.Extensions
         /// <summary>
         /// Create a project using <paramref name="project"/>
         /// </summary>
-        public static async Task<Project> CreateProjectAsync(this ITrainingApi trainingApi, Project project)
+        public static async Task<ProjectInfo> CreateProjectAsync(this ITrainingApi trainingApi, ProjectInfo project)
         {
             var domains = trainingApi.GetDomains();
             var targetDomain = domains.FirstOrDefault(x => string.Equals(x.Name, project.Domain, StringComparison.OrdinalIgnoreCase));

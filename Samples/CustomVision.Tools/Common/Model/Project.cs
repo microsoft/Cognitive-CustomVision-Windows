@@ -42,15 +42,15 @@ namespace Common.Model
     /// <summary>
     /// Project info model
     /// </summary>
-    public class Project : Microsoft.Cognitive.CustomVision.Training.Models.Project
+    public class ProjectInfo :Project
     {
-        public Project()
+        public ProjectInfo()
         {
             Name = "Custom Vision Project";
             Description = "No description";
         }
 
-        public Project(Microsoft.Cognitive.CustomVision.Training.Models.Project projectModel)
+        public ProjectInfo(Project projectModel)
         {
             Name = projectModel.Name;
             Description = projectModel.Description;
@@ -66,24 +66,24 @@ namespace Common.Model
         [JsonProperty("domain")]
         public string Domain { get; set; } = "General";
 
-        public static Project ReadProjectInfo(string projectInfoFileName)
+        public static ProjectInfo ReadProjectInfo(string projectInfoFileName)
         {
             if (string.IsNullOrEmpty(projectInfoFileName))
             {
-                return new Project();
+                return new ProjectInfo();
             }
 
             try
             {
                 using (var r = new StreamReader(projectInfoFileName))
                 {
-                    return JsonConvert.DeserializeObject<Project>(r.ReadToEnd());
+                    return JsonConvert.DeserializeObject<ProjectInfo>(r.ReadToEnd());
                 }
             }
             catch (FileNotFoundException)
             {
                 Console.WriteLine($"Project info file {projectInfoFileName} not found. The default one will be used.");
-                return new Project();
+                return new ProjectInfo();
             }
         }
 

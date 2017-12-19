@@ -71,7 +71,7 @@ namespace ImagesDownloader
             var imageFileWriter = ImageFilesWriterGenerator.GenerateImageFileWriter(options);
             imageFileWriter.WriteImagesToDisk(images);
 
-            var project = new Project(trainingApi.GetProject(options.ProjectId));
+            var project = new ProjectInfo(trainingApi.GetProject(options.ProjectId));
             project.WriteProjectInfo(options.WorkDir + options.ProjectInfoFileName).Wait();
         }
     }
