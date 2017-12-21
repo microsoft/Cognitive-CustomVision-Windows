@@ -99,8 +99,8 @@
     <Compile Include="DataProvider\UrlImagesLoader.cs" />
     <Compile Include="Extensions\TrainingApiExtensions.cs" />
     <Compile Include="Helper\RetryHelper.cs" />
-    <Compile Include="Model\Image.cs" />
-    <Compile Include="Model\Project.cs" />
+    <Compile Include="Model\ImageInfo.cs" />
+    <Compile Include="Model\ProjectInfo.cs" />
     <Compile Include="Options.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
