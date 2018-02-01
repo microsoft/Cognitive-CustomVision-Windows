@@ -53,9 +53,9 @@ namespace CustomVision.Sample
 
         static void Main(string[] args)
         {
-            // You can either add your training key here, pass it on the command line, or type it in when the program runs
-            string trainingKey = GetTrainingKey("<your key here>", args);
-
+            // Add your training key from the settings page of the portal
+            string trainingKey = "<your key here>";
+            
             // Create the Api, passing in the training key
             TrainingApi trainingApi = new TrainingApi() { ApiKey = trainingKey };
 
@@ -104,9 +104,9 @@ namespace CustomVision.Sample
 
             // Now there is a trained endpoint, it can be used to make a prediction
 
-            // Get the prediction key, which is used in place of the training key when making predictions
-            var account = trainingApi.GetAccountInfo();
-            var predictionKey = account.Keys.PredictionKeys.PrimaryKey;
+            // Add your prediction key from the settings page of the portal
+            // The prediction key is used in place of the training key when making predictions
+            string predictionKey = "<your key here>";
 
             // Create a prediction endpoint, passing in obtained prediction key
             PredictionEndpoint endpoint = new PredictionEndpoint() { ApiKey = predictionKey };
@@ -121,27 +121,6 @@ namespace CustomVision.Sample
                 Console.WriteLine($"\t{c.Tag}: {c.Probability:P1}");
             }
             Console.ReadKey();
-        }
-
-
-        private static string GetTrainingKey(string trainingKey, string[] args)
-        {
-            if (string.IsNullOrWhiteSpace(trainingKey) || trainingKey.Equals("<your key here>"))
-            {
-                if (args.Length >= 1)
-                {
-                    trainingKey = args[0];
-                }
-
-                while (string.IsNullOrWhiteSpace(trainingKey) || trainingKey.Length != 32)
-                {
-                    Console.Write("Enter your training key: ");
-                    trainingKey = Console.ReadLine();
-                }
-                Console.WriteLine();
-            }
-
-            return trainingKey;
         }
 
         private static void LoadImagesFromDisk()
