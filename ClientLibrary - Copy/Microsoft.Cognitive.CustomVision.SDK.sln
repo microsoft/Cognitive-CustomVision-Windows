@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.27513.1
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Microsoft.Cognitive.CustomVision.Prediction", "Microsoft.Cognitive.CustomVision.Prediction\Microsoft.Cognitive.CustomVision.Prediction.csproj", "{694C7864-F22C-4CE2-ADEE-CD32E8F2672A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Microsoft.Cognitive.CustomVision.Training", "Microsoft.Cognitive.CustomVision.Training\Microsoft.Cognitive.CustomVision.Training.csproj", "{549A746F-F6F5-4B01-BDF0-AF093076A4A3}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{694C7864-F22C-4CE2-ADEE-CD32E8F2672A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{694C7864-F22C-4CE2-ADEE-CD32E8F2672A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{694C7864-F22C-4CE2-ADEE-CD32E8F2672A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{694C7864-F22C-4CE2-ADEE-CD32E8F2672A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{549A746F-F6F5-4B01-BDF0-AF093076A4A3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{549A746F-F6F5-4B01-BDF0-AF093076A4A3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{549A746F-F6F5-4B01-BDF0-AF093076A4A3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{549A746F-F6F5-4B01-BDF0-AF093076A4A3}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {BBDC5D06-9C6B-4601-8134-9B14A354767F}
+	EndGlobalSection
+EndGlobal
