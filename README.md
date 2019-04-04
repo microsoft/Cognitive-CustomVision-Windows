@@ -9,9 +9,7 @@
 >* [Microsoft.Azure.CognitiveServices.Vision.CustomVision.Training](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Vision.CustomVision.Training)
 >* [Microsoft.Azure.CognitiveServices.Vision.CustomVision.Prediction](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Vision.CustomVision.Prediction/)
 >
->And the latest samples are at 
->
->* [Azure Samples for Custom Vision](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/tree/master/CustomVision)
+>Source for those packages can be found in the [Azure SDK For .NET](https://github.com/Azure/azure-sdk-for-net) repo and the latest samples are available with [Azure Samples for Custom Vision](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/tree/master/CustomVision).
 
 
 This repo contains the Windows client library & sample for the Microsoft Custom Vision Service, an offering within [Microsoft Cognitive Services](https://azure.microsoft.com/en-us/services/cognitive-services/)
