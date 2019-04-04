@@ -1,4 +1,17 @@
-# Microsoft Custom Vision Service: Windows Client Library & Sample
+ï»¿# Microsoft Custom Vision Service: Windows Client Library & Sample
+**This repo is out of date and will be retired on Oct 1, 2019**
+
+This repo exists to hold source for the older non Azure integrated version of the Cognitive Services Custom Vision SDK. The older versions will be deprecated on Oct 1, 2019. See our [March 26 release notes](https://docs.microsoft.com/en-us/azure/cognitive-services/custom-vision-service/release-notes) for more information.
+
+The latest versions can be found via NuGet:
+
+* [Microsoft.Azure.CognitiveServices.Vision.CustomVision.Training](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Vision.CustomVision.Training)
+* [Microsoft.Azure.CognitiveServices.Vision.CustomVision.Prediction](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Vision.CustomVision.Prediction/)
+
+And the latest samples are at 
+
+* [Azure Samples for Custom Vision](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/tree/master/CustomVision)
+
 This repo contains the Windows client library & sample for the Microsoft Custom Vision Service, an offering within [Microsoft Cognitive Services](https://azure.microsoft.com/en-us/services/cognitive-services/)
 
 ## The Prediction Client Library
@@ -60,4 +73,4 @@ Sample images are licensed separately, please refer to [LICENSE-IMAGE](</LICENSE
 
 
 ## Developer Code of Conduct
-Developers using Cognitive Services, including this client library & sample & tools, are expected to follow the “Developer Code of Conduct for Microsoft Cognitive Services”, found at [http://go.microsoft.com/fwlink/?LinkId=698895](http://go.microsoft.com/fwlink/?LinkId=698895).
+Developers using Cognitive Services, including this client library & sample & tools, are expected to follow the â€œDeveloper Code of Conduct for Microsoft Cognitive Servicesâ€, found at [http://go.microsoft.com/fwlink/?LinkId=698895](http://go.microsoft.com/fwlink/?LinkId=698895).
